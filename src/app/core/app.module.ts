@@ -8,7 +8,7 @@ import { SharepicHeaderComponent } from '../components/sharepic-header/sharepic-
 @NgModule({
   declarations: [
     AppComponent,
-    SharepicHeaderComponent
+    SharepicHeaderComponent,
   ],
   imports: [
     BrowserModule,

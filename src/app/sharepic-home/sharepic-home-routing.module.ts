@@ -1,15 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { SharepicHomeComponent } from './sharepic-home.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('../sharepic-home/sharepic-home.module').then(mod => mod.SharepicHomeModule),
+    component: SharepicHomeComponent
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class SharepicHomeRoutingModule {}

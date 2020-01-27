@@ -7,7 +7,7 @@
 <!-- * * * * * * * to get started with your project! * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<app-sharepic-header (userLogin)="onUserLogin($event)" (userLogout)="onUserLogout($event)"></app-sharepic-header>
+<app-sharepic-header [isLogged]="isLogged" (userLogin)="onUserLogin($event)" (userLogout)="onUserLogout($event)"></app-sharepic-header>
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

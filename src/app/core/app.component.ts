@@ -22,10 +22,17 @@ export class AppComponent implements OnInit {
 
   isLoggedUser() {
     const user = this.authService.isLogged();
-    user.subscribe((data) => console.log(data));
+    user.subscribe((data) => {
+      if (data) {
+        this.isLogged = true;
+      } else {
+        this.isLogged = false;
+      }
+    });
   }
 
   onUserLogout() {
     this.authService.logout();
+    this.isLoggedUser();
   }
 }

@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { auth } from 'firebase/app';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -8,16 +6,26 @@ import { auth } from 'firebase/app';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  @Output() userLogin = new EventEmitter<any>();
+  @Output() userLogout = new EventEmitter<any>();
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor() {}
+  // constructor(public afAuth: AngularFireAuth) {}
 
   login() {
-    this.afAuth.auth.signInWithEmailAndPassword('toto@toto.fr', 'toto1234');
+    this.userLogin.emit(true);
   }
 
   logout() {
-    this.afAuth.auth.signOut();
+    this.userLogout.emit(true);
   }
+
+
+  // login() {
+  //   this.afAuth.auth.signInWithEmailAndPassword('toto@toto.fr', 'toto1234');
+  // }
+
+
 
   ngOnInit() {
   }

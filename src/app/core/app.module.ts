@@ -11,6 +11,7 @@ import { SharepicHeaderComponent } from '../components/sharepic-header/sharepic-
 import { UserComponent } from '../components/user/user.component';
 import { SearchComponent } from '../components/search/search.component';
 import { environment } from 'src/environments/environment';
+import { AuthentificationService } from '../services/authentification.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { environment } from 'src/environments/environment';
     AngularFireAuthModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthentificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

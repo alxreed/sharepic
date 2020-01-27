@@ -1,0 +1,145 @@
+/*
+    Header Style
+*/
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1001;
+  top: 0;
+  min-height: 72px;
+  width: 100vw;
+  background-color: #FFF;
+  transition: all 0.1s ease-out;
+  padding: 16px 64px;
+  white-space: nowrap;
+}
+
+.top-nav .logo {
+  max-width: 240px;
+}
+
+.top-nav .logo img {
+  width: 100%;
+}
+
+.top-nav_actions {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-nav .search {
+  position: relative;
+  min-width: 224px;
+  min-height: 24px;
+  margin-right: 24px;
+}
+
+.top-nav .search .submit {
+  background-image: url(https://assetcdn.500px.org/assets/search-8fe8897ae58915b80f55b3d78163cf63.svg);
+  position: absolute;
+  top: 12px;
+  left: 16px;
+  height: 16px;
+  width: 16px;
+  border: none;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  text-indent: 30px;
+  cursor: pointer;
+  pointer-events: none;
+}
+
+.top-nav .search .search_input {
+  width: 100%;
+  height: 40px;
+  border: 0;
+  border-radius: 25px;
+  background: #F7F8FA;
+  padding: 0;
+  font-weight: normal;
+  font-size: 16px;
+  color: #222;
+  text-indent: 48px;
+  outline: none;
+}
+
+.top-nav .user {
+  display: flex;
+  flex-direction: row;
+}
+
+.top-nav .user .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  color: #222;
+  font-size: 16px;
+  outline: none;
+  padding: 0 16px;
+  transition: background-color 0.1s ease-out;
+}
+
+.top-nav .user .button:hover {
+  color: #0099e5;
+}
+
+.top-nav .user .button.signup {
+  border-color: #222;
+  border-radius: 16px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.top-nav .user .user_account,  .top-nav .user .user_link{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  margin-right: 24px;
+  transition: all 0.1s ease-out;
+}
+
+.top-nav .user .user_link:hover {
+  background-color: #0099e5;
+  fill: #fff;
+}
+
+.top-nav .user .user_account img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.top-nav .user .button.upload {
+  height: 46px;
+  padding: 0 28px;
+  border-color: #222;
+  border-radius: 25px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.top-nav .user .button.upload svg {
+  margin-right: 10px;
+}
+
+.top-nav .user .button.upload:hover {
+  background: #0099e5;
+  color: #fff;
+  border-color: #0099e5;
+}
+
+.top-nav .user .button.upload:hover svg {
+  stroke: #fff;
+  fill: #fff;
+  color: #fff;
+}

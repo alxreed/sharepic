@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -6,8 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  @Input() isLogged: boolean;
+  @Output() userLogin = new EventEmitter<any>();
+  @Output() userLogout = new EventEmitter<any>();
 
-  constructor() { }
+  constructor() {}
+  // constructor(public afAuth: AngularFireAuth) {}
+
+  login() {
+    this.userLogin.emit(true);
+  }
+
+  logout() {
+    this.userLogout.emit(true);
+  }
+
+
+  // login() {
+  //   this.afAuth.auth.signInWithEmailAndPassword('toto@toto.fr', 'toto1234');
+  // }
+
+
 
   ngOnInit() {
   }

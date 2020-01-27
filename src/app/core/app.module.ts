@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharepicHeaderComponent } from '../sharepic-header/sharepic-header.component';
+import { SharepicHeaderComponent } from '../components/sharepic-header/sharepic-header.component';
 
 @NgModule({
   declarations: [

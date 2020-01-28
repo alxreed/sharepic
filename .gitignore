@@ -46,4 +46,5 @@ testem.log
 Thumbs.db
 
 #environnements + api key
-/src/environments
+/src/environments/environment.ts
+/src/environments/environment.ts

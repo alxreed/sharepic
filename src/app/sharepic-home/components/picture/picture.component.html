@@ -4,7 +4,7 @@
   </div>
   <div class="image_infos">
     <div class="pulse">{{ picture.rating }}</div>
-    <a class="link" [routerLink]="['/image', picture.title]"></a>
+    <a class="link" (click)="onSelect(picture)"></a>
     <div class="infos">
       <div class="author">
         <div class="avatar" *ngIf="picture.author.avatarUrl; else noAvatar">

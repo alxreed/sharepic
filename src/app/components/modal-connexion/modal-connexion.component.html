@@ -1,0 +1,23 @@
+<div class="upload_modal_wrapper">
+  <div class="upload_modal">
+    <div class="upload_modal_title">
+      Connexion
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <div class="upload_modal_content">
+        <div class="input_wrapper">
+          <label for="email">Email</label>
+          <input id="email" type="text" formControlName="email"/>
+        </div>
+        <div class="input_wrapper">
+          <label for="password">Password</label>
+          <input id="password" type="text" formControlName="password"/>
+        </div>
+        <div class="actions">
+          <input class="button" type="submit"/>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="overlay"></div>

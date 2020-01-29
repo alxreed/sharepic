@@ -6,27 +6,32 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
   @Input() isLogged: boolean;
-  @Output() userLogin = new EventEmitter<any>();
   @Output() userLogout = new EventEmitter<any>();
+  @Output() userLogin = new EventEmitter<any>();
+
+
+  @Output() connexionForm = false;
 
   constructor() {}
-  // constructor(public afAuth: AngularFireAuth) {}
 
-  login() {
-    this.userLogin.emit(true);
+  connecttoForm() {
+    this.connexionForm = true;
   }
+
+  onUserLogin(event: any) {
+    console.log(event);
+    this.userLogin.emit(event);
+  }
+
+  // login() {
+  //   this.userLogin.emit(true);
+  // }
 
   logout() {
     this.userLogout.emit(true);
   }
-
-
-  // login() {
-  //   this.afAuth.auth.signInWithEmailAndPassword('toto@toto.fr', 'toto1234');
-  // }
-
-
 
   ngOnInit() {
   }

@@ -12,13 +12,16 @@ import { UserComponent } from '../components/user/user.component';
 import { SearchComponent } from '../components/search/search.component';
 import { environment } from 'src/environments/environment';
 import { AuthentificationService } from '../services/authentification.service';
+import { ModalConnexionComponent } from '../components/modal-connexion/modal-connexion.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     SharepicHeaderComponent,
     UserComponent,
-    SearchComponent
+    SearchComponent,
+    ModalConnexionComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,8 @@ import { AuthentificationService } from '../services/authentification.service';
     AngularFireModule.initializeApp(environment.firebase, 'sharepic'),
     AngularFireStorageModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ReactiveFormsModule
   ],
   providers: [AuthentificationService],
   bootstrap: [AppComponent]

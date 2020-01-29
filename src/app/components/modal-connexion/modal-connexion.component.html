@@ -1,0 +1,55 @@
+<div class="upload_modal_wrapper">
+  <div class="upload_modal">
+    <div class="upload_modal_title">
+      Connexion
+    </div>
+    <form [formGroup]="profileForm" (ngSubmit)="login()">
+      <div class="upload_modal_content">
+        <div class="input_wrapper">
+          <label for="email">Email</label>
+          <input id="email" type="email" formControlName="email" required/>
+          <div
+            *ngIf="email.invalid && (email.dirty || email.touched)"
+            class="alert"
+          >
+            <div *ngIf="email.errors.email">
+              Invalid email
+            </div>
+            <div *ngIf="email.errors.required">
+              Email is required
+            </div>
+          </div>
+        </div>
+        <div class="input_wrapper">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            required
+          />
+          <div
+            *ngIf="password.invalid && (password.dirty || password.touched)"
+            class="alert"
+          >
+            <div *ngIf="password.errors.minlength">
+              Password must be at least 6 characters long
+            </div>
+            <div *ngIf="password.errors.required">
+              Password is required
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <input class="button valider" type="submit" />
+          <input
+            class="button cancel"
+            value="Annuler"
+            (click)="connectToForm()"
+          />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="overlay"></div>

@@ -1,0 +1,123 @@
+/*
+    Upload Modal Style
+*/
+.upload_modal_wrapper {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.upload_modal_wrapper .upload_modal {
+  width: 450px;
+  height: 550px;
+  background: #f7f8fa;
+  position: relative;
+}
+
+.upload_modal_wrapper .upload_modal_title {
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  padding: 20px;
+  background: #fff;
+}
+
+.upload_modal_wrapper .upload_modal_content {
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.upload_modal_wrapper .upload_modal_content .alert {
+  margin: 5px 0 0 5px;
+  color: #d3540090;
+}
+
+.upload_modal_wrapper .upload_modal_content .input_wrapper {
+  padding: 20;
+  margin-bottom: 20px;
+}
+
+.upload_modal_wrapper .upload_modal_content .input_wrapper label {
+  display: inline-block;
+  margin-bottom: .5rem;
+}
+
+.upload_modal_wrapper .upload_modal_content .input_wrapper input, .upload_modal_wrapper .upload_modal_content .input_wrapper textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #efefef;
+  background-clip: padding-box;
+  border: none;
+  border-radius: .25rem;
+  outline: none;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+::-webkit-file-upload-button {
+  background: #dedede;
+  border-radius: 10px;
+  color: #666;
+  box-shadow: none;
+  outline: none;
+  padding: 8px;
+}
+
+.upload_modal_wrapper .upload_modal_content .actions {
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.upload_modal_wrapper .upload_modal_content .actions .button {
+  cursor: pointer;
+  width: 153px;
+  height: 48px;
+  line-height: 48px;
+  background: #0870d1;
+  border-radius: 28px;
+  font-size: 16px;
+  font-family: Arial,Helvetica,sans-serif;
+  text-align: center;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+}
+
+.upload_modal_wrapper .upload_modal_content .actions .button.valider {
+  background: #16a08590;
+}
+
+.upload_modal_wrapper .upload_modal_content .actions .button.cancel {
+  background: #d3540090;
+}
+
+/*
+  Overlay Style
+*/
+.overlay {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.3);
+}

@@ -10,9 +10,10 @@ export class AuthentificationService {
 
   constructor(private afAuth: AngularFireAuth) { }
 
-  login() {
+  login(email, password) {
     console.log('Login Service');
-    this.afAuth.auth.signInWithEmailAndPassword('toto@toto.fr', 'toto1234');
+    console.log(this.afAuth.user);
+    this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
   isLogged() {

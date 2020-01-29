@@ -5,6 +5,7 @@ import { SharepicHomeComponent } from './sharepic-home.component';
 import { TabNavigationComponent } from './components/tab-navigation/tab-navigation.component';
 import { SharepicHomeRoutingModule } from './sharepic-home-routing.module';
 import { GalleryBodyComponent } from './components/gallery-body/gallery-body.component';
+import { PictureComponent } from './components/picture/picture.component';
 
 
 
@@ -13,7 +14,8 @@ import { GalleryBodyComponent } from './components/gallery-body/gallery-body.com
     DiscoveryHeaderComponent,
     SharepicHomeComponent,
     TabNavigationComponent,
-    GalleryBodyComponent
+    GalleryBodyComponent,
+    PictureComponent
   ],
   imports: [
     CommonModule,

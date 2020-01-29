@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PictureService } from '../services/picture.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-sharepic-home',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SharepicHomeComponent implements OnInit {
 
-  constructor() { }
+  pictures$: Observable<any[]>;
+
+  constructor(private pictureServcie: PictureService) { }
 
   ngOnInit() {
+    this.pictures$ = this.pictureServcie.getPopularPictures();
   }
 
 }

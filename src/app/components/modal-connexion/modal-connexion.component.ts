@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -10,8 +10,10 @@ export class ModalConnexionComponent implements OnInit {
 
 
   constructor() { }
-
   @Output() userLogin = new EventEmitter<any>();
+
+  @Output() cancelConnexionForm = new EventEmitter<any>();
+
 
   profileForm = new FormGroup({
     email: new FormControl(''),
@@ -24,6 +26,10 @@ export class ModalConnexionComponent implements OnInit {
 
   onSubmit() {
     console.log(this.profileForm.value);
+  }
+
+  connectToForm() {
+    this.cancelConnexionForm.emit(true);
   }
 
   ngOnInit() {

@@ -78,7 +78,7 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
 .upload_modal_wrapper .upload_modal_content .actions .button {
@@ -93,10 +93,15 @@
   text-align: center;
   color: #fff;
   font-weight: 700;
+  border: none;
 }
 
-.upload_modal_wrapper .upload_modal_content .actions .button {
-  background: #2986f7;
+.upload_modal_wrapper .upload_modal_content .actions .button.valider {
+  background: #16a08590;
+}
+
+.upload_modal_wrapper .upload_modal_content .actions .button.cancel {
+  background: #d3540090;
 }
 
 /*

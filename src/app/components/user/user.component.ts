@@ -16,18 +16,14 @@ export class UserComponent implements OnInit {
 
   constructor() {}
 
-  connecttoForm() {
-    this.connexionForm = true;
+  connectToForm() {
+    this.connexionForm = !this.connexionForm;
   }
 
   onUserLogin(event: any) {
     console.log(event);
     this.userLogin.emit(event);
   }
-
-  // login() {
-  //   this.userLogin.emit(true);
-  // }
 
   logout() {
     this.userLogout.emit(true);

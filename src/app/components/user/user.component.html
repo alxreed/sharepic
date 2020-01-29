@@ -50,15 +50,15 @@
 </div>
 <ng-template #showLogin>
   <div class="user" *ngIf="!connexionForm; else showModal">
-    <a class="signin button" (click)="connecttoForm()">Se connecter</a>
+    <a class="signin button" (click)="connectToForm()">Se connecter</a>
     <a class="signup button">Créer un compte</a>
   </div>
   <ng-template #showModal>
     <div class="user">
-      <a class="signin button" (click)="connecttoForm()">Se connecter</a>
+      <a class="signin button" (click)="connectToForm()">Se connecter</a>
       <a class="signup button">Créer un compte</a>
     </div>
-    <app-modal-connexion (userLogin)="onUserLogin($event)"></app-modal-connexion>
+    <app-modal-connexion (userLogin)="onUserLogin($event)" (cancelConnexionForm)="connectToForm($event)"></app-modal-connexion>
   </ng-template>
 </ng-template>
 

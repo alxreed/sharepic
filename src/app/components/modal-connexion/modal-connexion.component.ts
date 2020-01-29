@@ -14,11 +14,7 @@ export class ModalConnexionComponent implements OnInit {
 
   @Output() cancelConnexionForm = new EventEmitter<any>();
 
-
-  profileForm = new FormGroup({
-    email: new FormControl('', [Validators.email, Validators.required]),
-    password: new FormControl(''),
-  });
+  profileForm: FormGroup;
 
   login() {
     this.userLogin.emit(this.profileForm.value);
@@ -30,6 +26,20 @@ export class ModalConnexionComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.profileForm = new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email,
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(6),
+      ]),
+    });
   }
+
+  get email() { return this.profileForm.get('email'); }
+
+  get password() { return this.profileForm.get('password'); }
 
 }

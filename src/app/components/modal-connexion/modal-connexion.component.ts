@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-connexion',
@@ -16,7 +16,7 @@ export class ModalConnexionComponent implements OnInit {
 
 
   profileForm = new FormGroup({
-    email: new FormControl(''),
+    email: new FormControl('', [Validators.email, Validators.required]),
     password: new FormControl(''),
   });
 

@@ -7,15 +7,35 @@
       <div class="upload_modal_content">
         <div class="input_wrapper">
           <label for="email">Email</label>
-          <input id="email" type="text" formControlName="email"/>
+          <input id="email" type="email" formControlName="email" />
+          <div
+            *ngIf="profileForm.get('email').invalid && (profileForm.get('email').dirty || profileForm.get('email').touched)"
+            class="alert"
+          >
+            <div *ngIf="profileForm.get('email').errors.email">
+              Invalid email
+            </div>
+            <div *ngIf="profileForm.get('email').errors.required">
+              Email is required
+            </div>
+          </div>
         </div>
         <div class="input_wrapper">
           <label for="password">Password</label>
-          <input id="password" type="text" formControlName="password"/>
+          <input
+            id="password"
+            type="password"
+            formControlName="password"
+            required
+          />
         </div>
         <div class="actions">
-          <input class="button valider" type="submit"/>
-          <input class="button cancel" value="Annuler" (click)="connectToForm()"/>
+          <input class="button valider" type="submit" />
+          <input
+            class="button cancel"
+            value="Annuler"
+            (click)="connectToForm()"
+          />
         </div>
       </div>
     </form>

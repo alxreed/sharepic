@@ -34,6 +34,11 @@
   box-sizing: border-box;
 }
 
+.upload_modal_wrapper .upload_modal_content .alert {
+  margin: 5px 0 0 5px;
+  color: #d3540090;
+}
+
 .upload_modal_wrapper .upload_modal_content .input_wrapper {
   padding: 20;
   margin-bottom: 20px;

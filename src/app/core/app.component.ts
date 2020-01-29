@@ -15,8 +15,9 @@ export class AppComponent implements OnInit {
     this.isLoggedUser();
   }
 
-  onUserLogin() {
-    this.authService.login();
+  onUserLogin(event: { email: string; password: string; }) {
+    console.log(event);
+    this.authService.login(event.email, event.password);
     this.isLoggedUser();
   }
 

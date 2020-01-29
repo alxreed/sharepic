@@ -21,10 +21,7 @@ export class ModalConnexionComponent implements OnInit {
   });
 
   login() {
-    this.userLogin.emit(true);
-  }
-
-  onSubmit() {
+    this.userLogin.emit(this.profileForm.value);
     console.log(this.profileForm.value);
   }
 

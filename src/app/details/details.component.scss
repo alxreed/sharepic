@@ -1,0 +1,197 @@
+/*
+    Details page
+*/
+.viewer {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: rgb(34, 34, 34);
+  min-height: 600px;
+  height: calc(100vh - 270px);
+  position: relative;
+  flex: 1 1 0%;
+  padding: 32px 64px;
+  transition: height 0.15s linear 0s;
+}
+.viewer_close {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+
+.viewer_close span {
+  font-size: 26px;
+  font-weight: normal;
+  color: rgb(238, 239, 242);
+  position: relative;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  transition: background-color 0.1s ease 0s;
+  border-radius: 40px;
+  transition: all linear 300ms;
+}
+.viewer_close span:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  cursor: pointer;
+}
+.viewer_close span:after {
+  content: "✕";
+  font-family: "Helvetica Neue", HelveticaNeue, Helvetica, FreeSans, Arial, sansserif;
+  cursor: pointer;
+}
+.viewer_image {
+  height: 100%;
+  max-width: calc(100vw - 250px);
+}
+.viewer_image img {
+  height: 100%;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: calc(100vw - 250px);
+  margin: 0 auto;
+  padding: 2rem 0 0 0;
+}
+.content .infos {
+  width: 40%;
+}
+.content .comments {
+  width: 55%;
+}
+.informations_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.informations_wrapper .actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px;
+}
+.informations_wrapper .actions span {
+  margin-right: 10px;
+  height: 32px;
+}
+.informations_wrapper .actions span.like_button {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.informations_wrapper .actions span.like_button .icon {
+  height: 100%;
+  width: 100%;
+}
+
+.informations_wrapper .actions span.like {
+  color: #000;
+  font-size: 1.2rem;
+  line-height: 32px;
+}
+.informations_wrapper .actions span.message_button {
+  margin-left: 4rem;
+}
+.informations_wrapper .author {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.informations_wrapper .author_column {
+  display: flex;
+  flex-direction: column;
+}
+.informations_wrapper .author_column .title {
+  font-size: 21px;
+  line-height: 24px;
+  letter-spacing: 0px;
+  font-weight: bold;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  margin: 0px 0px 8px;
+}
+.informations_wrapper .author_column .author_name {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  display: inline;
+  margin: 0px;
+}
+.informations_wrapper .author_avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+}
+.informations_wrapper .author_avatar img {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+}
+.comments_wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.comments_wrapper .title {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  font-weight: bold;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  margin: 0px 0px 24px;
+}
+.comments_wrapper_list {
+  display: flex;
+  flex-direction: column;
+}
+.comment_card {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0;
+}
+.comment_card .author_avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-right: 10px;
+}
+.comment_card .author_avatar img {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+}
+.comment_card .comment {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.comment_card .comment .author {
+  position: relative;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  color: rgb(34, 34, 34);
+  text-decoration: none;
+  transition: color 0.1s ease 0s;
+}
+.comment_card .comment .text {
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  text-transform: none;
+  color: rgb(34, 34, 34);
+  margin: 0px;
+}
+.comment_card .time {
+  padding: 0 0 0 10px;
+}

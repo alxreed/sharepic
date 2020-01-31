@@ -21,7 +21,7 @@ export class PictureService {
     );
   }
 
-  getPictureById(id: string){
+  getPictureById(id: string) {
     return this.db.doc<any>(`pictures/${id}`).valueChanges();
   }
 }

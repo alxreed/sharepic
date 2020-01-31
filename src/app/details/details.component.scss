@@ -49,9 +49,7 @@
   height: 100%;
   max-width: calc(100vw - 250px);
 }
-.viewer_image img {
-  height: 100%;
-}
+
 .content {
   display: flex;
   flex-direction: row;
@@ -192,6 +190,6 @@
   color: rgb(34, 34, 34);
   margin: 0px;
 }
-.comment_card .time {
+.comment_card.time {
   padding: 0 0 0 10px;
 }

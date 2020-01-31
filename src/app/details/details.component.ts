@@ -15,8 +15,8 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     const id: string = this.route.snapshot.paramMap.get('imageId');
-    console.log(id);
     this.picture$ = this.service.getPictureById(id);
+    console.log(this.picture$);
     // this.picture$.subscribe(data => console.log(data));
   }
 

@@ -1,0 +1,12 @@
+<div class="viewer">
+  <div class="viewer_close" [routerLink]="['/']">
+    <span></span>
+  </div>
+  <div class="viewer_image">
+    <app-detail-picture [picture]="picture$ | async"></app-detail-picture>
+  </div>
+</div>
+<div class="content">
+  <app-details-infos [picture]="picture$ | async"></app-details-infos>  ​
+  <app-details-comments [comments]="comments$ | async"></app-details-comments>
+</div>

@@ -6,6 +6,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('../sharepic-home/sharepic-home.module').then(mod => mod.SharepicHomeModule),
   },
+  {
+    path: 'image/:imageId',
+    loadChildren: () => import('../details/details.module').then(mod => mod.DetailsModule),
+  },
 ];
 
 @NgModule({

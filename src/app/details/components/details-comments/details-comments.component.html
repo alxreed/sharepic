@@ -1,0 +1,21 @@
+<div class="comments_wrapper" *ngIf="commentsArray">
+  <span class="title">{{commentsArray.length}} Comments</span>
+  <div class="comments_list">
+    <div class="comment_card" *ngFor="let comment of commentsArray">
+      <div class="author_avatar">
+        <img *ngIf="comment.author.avatarUrl"
+          [src]="comment.author.avatarUrl"
+        />
+      </div>
+      <div class="comment">
+        <span class="author">{{ comment.author.firstname | titlecase}} {{comment.author.lastname | uppercase}}</span>
+        <span class="text">{{comment.text}}</span>
+      </div>
+      <div class="time">
+        <span>
+          {{comment.createdAt.toDate().getDate()}} / {{comment.createdAt.toDate().getMonth() + 1 }} / {{comment.createdAt.toDate().getFullYear()}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

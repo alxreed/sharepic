@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-picture',
@@ -8,12 +7,9 @@ import { Router } from '@angular/router';
 })
 export class PictureComponent implements OnInit {
   @Input() picture: any;
-  constructor(private router: Router) { }
+  constructor() { }
 
   ngOnInit() {
   }
 
-  onSelect(picture) {
-    this.router.navigate(['/image', picture.title]);
-  }
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { PictureService } from '../services/picture.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-details',
@@ -7,13 +9,15 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
+  picture$: Observable<any>;
 
-  public pictureTitle;
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private service: PictureService) { }
 
   ngOnInit() {
-    let title = this.route.snapshot.paramMap.get('title');
-    this.pictureTitle = title;
+    const id: string = this.route.snapshot.paramMap.get('imageId');
+    console.log(id);
+    this.picture$ = this.service.getPictureById(id);
+    // this.picture$.subscribe(data => console.log(data));
   }
 
 }

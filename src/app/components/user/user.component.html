@@ -34,7 +34,7 @@
       ></path>
     </svg>
   </a>
-  <a class="upload button">
+  <a class="upload button" (click)="connectToUploadForm()">
     <svg
       width="16"
       height="16"
@@ -47,6 +47,9 @@
     </svg>
     Upload
   </a>
+  <div class="upload" *ngIf="UploadForm">
+    <app-modal-upload (cancelUploadForm)="connectToUploadForm($event)"></app-modal-upload>
+  </div>
 </div>
 <ng-template #showLogin>
   <div class="user" *ngIf="!connexionForm; else showModal">

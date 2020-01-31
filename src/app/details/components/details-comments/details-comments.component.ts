@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { CommentService } from 'src/app/services/comment.service';
 import { ActivatedRoute } from '@angular/router';
 

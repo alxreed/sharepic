@@ -13,11 +13,16 @@ export class UserComponent implements OnInit {
 
 
   @Output() connexionForm = false;
+  @Output() UploadForm = false;
 
   constructor() {}
 
   connectToForm() {
     this.connexionForm = !this.connexionForm;
+  }
+
+  connectToUploadForm() {
+    this.UploadForm = !this.UploadForm;
   }
 
   onUserLogin(event: any) {

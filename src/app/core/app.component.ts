@@ -9,6 +9,7 @@ import { AuthentificationService } from '../services/authentification.service';
 export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
+  user = this.authService.isLogged();
   constructor(private authService: AuthentificationService) {}
 
   ngOnInit() {
@@ -22,8 +23,7 @@ export class AppComponent implements OnInit {
   }
 
   isLoggedUser() {
-    const user = this.authService.isLogged();
-    user.subscribe((data) => {
+    this.user.subscribe((data) => {
       if (data) {
         this.isLogged = true;
       } else {

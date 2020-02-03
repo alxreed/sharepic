@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../services/authentification.service';
+import { UploadService } from '../services/upload.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
   user = this.authService.isLogged();
-  constructor(private authService: AuthentificationService) {}
+  constructor(private authService: AuthentificationService, private uploadService: UploadService) {}
 
   ngOnInit() {
     this.isLoggedUser();
@@ -22,9 +23,9 @@ export class AppComponent implements OnInit {
     this.isLoggedUser();
   }
 
-  onUploadPicture(event) {
-    // some code;
+  onUploadPicture(event: any) {
     console.log(event);
+    this.uploadService.uploadPicture(event);
 
   }
 

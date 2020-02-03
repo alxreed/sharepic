@@ -22,6 +22,12 @@ export class AppComponent implements OnInit {
     this.isLoggedUser();
   }
 
+  onUploadPicture(event) {
+    // some code;
+    console.log(event);
+
+  }
+
   isLoggedUser() {
     this.user.subscribe((data) => {
       if (data) {

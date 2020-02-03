@@ -48,7 +48,7 @@
     Upload
   </a>
   <div class="upload" *ngIf="UploadForm">
-    <app-modal-upload (cancelUploadForm)="connectToUploadForm($event)"></app-modal-upload>
+    <app-modal-upload (cancelUploadForm)="connectToUploadForm($event)"  (upload)="onUploadPicture($event)"></app-modal-upload>
   </div>
 </div>
 <ng-template #showLogin>

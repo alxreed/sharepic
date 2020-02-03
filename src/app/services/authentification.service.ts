@@ -10,8 +10,7 @@ export class AuthentificationService {
 
   constructor(private afAuth: AngularFireAuth) { }
 
-  login(email, password) {
-    console.log('Login Service');
+  login(email: string, password: string) {
     console.log(this.afAuth.user);
     this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
@@ -21,7 +20,6 @@ export class AuthentificationService {
   }
 
   logout() {
-    console.log('Logout Service');
     this.afAuth.auth.signOut();
   }
 }

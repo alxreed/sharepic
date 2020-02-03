@@ -10,8 +10,7 @@ import { UploadService } from '../services/upload.service';
 export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
-  user = this.authService.isLogged();
-  constructor(private authService: AuthentificationService, private uploadService: UploadService) {}
+  constructor(private authService: AuthentificationService, private uploadService: UploadService) { }
 
   ngOnInit() {
     this.isLoggedUser();
@@ -26,12 +25,14 @@ export class AppComponent implements OnInit {
   onUploadPicture(event: any) {
     console.log(event);
     this.uploadService.uploadPicture(event);
-
   }
 
   isLoggedUser() {
-    this.user.subscribe((data) => {
+    const user = this.authService.isLogged();
+    user.subscribe((data) => {
       if (data) {
+        console.log(data);
+
         this.isLogged = true;
       } else {
         this.isLogged = false;

@@ -8,11 +8,12 @@ export class UploadService {
 
   constructor(private storage: AngularFireStorage) { }
 
-  uploadPicture(event: any) {
-    this.storage.upload(event.title, event.file);
+  async uploadPicture(event: any) {
+    await this.storage.upload(event.title, event.file);
   }
 
+  async getPictureUrl(event) {
+    const ref = this.storage.ref(event.title);
+    return await ref.getDownloadURL().toPromise();
+  }
 }
-
-
-// gs://sharepic-e5be2.appspot.com

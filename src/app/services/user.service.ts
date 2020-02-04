@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +28,13 @@ export class UserService {
     await this.db.collection<any>('users').doc(id).set(user);
   }
 
-  async getUserByEmail(email: string) {
-    const data = await this.db.doc<any>(`users/${email}`).valueChanges().toPromise();
-    this.userConnected = data;
-    return this.userConnected;
+  getUserByEmail(email: string) {
+    // const data = await this.db.collection<any>('users', ref => ref.where('email', '==', email)).valueChanges().toPromise();
+    return this.db.collection<any>('users', ref => ref.where('email', '==', email)).valueChanges();
+  }
+
+  setConnectedUser(user) {
+    this.userConnected = user;
   }
 
   getConnectedUser() {

@@ -1,10 +1,15 @@
 <!-- Unconnected user -->
 <div class="user" *ngIf="isLogged; else showLogin">
   <a class="user_link user_account" (click)="logout()">
-    <img
-      [src]="userLogged.avatarUrl"
-      alt=""
-    />
+    <div
+      class="avatar"
+      *ngIf="userLogged && userLogged.avatarUrl; else noAvatar"
+    >
+      <img [src]="userLogged.avatarUrl" alt="" />
+    </div>
+    <ng-template #noAvatar>
+      <img src="https://avenoel.org/images/avatars/JohnnyHallyday_056075ed8e46ea5c4ed4f6b68148a2aa.jpeg" alt="" />
+    </ng-template>
   </a>
   <a class="user_link user_msg">
     <svg
@@ -48,15 +53,23 @@
     Upload
   </a>
   <div class="upload" *ngIf="UploadForm">
-    <app-modal-upload (cancelUploadForm)="connectToUploadForm($event)"  (upload)="onUploadPicture($event)"></app-modal-upload>
+    <app-modal-upload
+      (cancelUploadForm)="connectToUploadForm($event)"
+      (upload)="onUploadPicture($event)"
+    ></app-modal-upload>
   </div>
 </div>
 <ng-template #showLogin>
   <div class="user" *ngIf="!connexionForm; else showModal">
     <a class="signin button" (click)="connectToForm()">Se connecter</a>
-    <a class="signup button" (click)="connectToAccountForm()">Créer un compte</a>
+    <a class="signup button" (click)="connectToAccountForm()"
+      >Créer un compte</a
+    >
     <div class="compte" *ngIf="accountForm">
-      <app-modal-compte (cancelAccountForm)="connectToAccountForm()" (userCreation)="onUserCreation($event)"></app-modal-compte>
+      <app-modal-compte
+        (cancelAccountForm)="connectToAccountForm()"
+        (userCreation)="onUserCreation($event)"
+      ></app-modal-compte>
     </div>
   </div>
   <ng-template #showModal>
@@ -64,8 +77,9 @@
       <a class="signin button" (click)="connectToForm()">Se connecter</a>
       <a class="signup button">Créer un compte</a>
     </div>
-    <app-modal-connexion (userLogin)="onUserLogin($event)" (cancelConnexionForm)="connectToForm($event)"></app-modal-connexion>
+    <app-modal-connexion
+      (userLogin)="onUserLogin($event)"
+      (cancelConnexionForm)="connectToForm($event)"
+    ></app-modal-connexion>
   </ng-template>
 </ng-template>
-
-

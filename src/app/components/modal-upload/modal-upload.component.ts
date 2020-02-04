@@ -46,6 +46,7 @@ export class ModalUploadComponent implements OnInit {
     console.log(data);
 
     this.upload.emit(data);
+    this.connectToUploadForm();
   }
 
 }

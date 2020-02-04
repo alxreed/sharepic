@@ -1,13 +1,21 @@
 <div class="upload_modal_wrapper">
   <div class="upload_modal">
     <div class="upload_modal_title">
-      Connexion
+      Création de compte
     </div>
-    <form [formGroup]="profileForm" (ngSubmit)="login()">
+    <form [formGroup]="accountForm" (ngSubmit)="creation()">
       <div class="upload_modal_content">
         <div class="input_wrapper">
+          <label for="firstname">Firstname</label>
+          <input id="firstname" type="text" formControlName="firstname" />
+        </div>
+        <div class="input_wrapper">
+          <label for="lastname">Lastname</label>
+          <input id="lastname" type="text" formControlName="lastname" />
+        </div>
+        <div class="input_wrapper">
           <label for="email">Email</label>
-          <input id="email" type="email" formControlName="email" required/>
+          <input id="email" type="email" formControlName="email" required />
           <div
             *ngIf="email.invalid && (email.dirty || email.touched)"
             class="alert"
@@ -40,12 +48,16 @@
             </div>
           </div>
         </div>
+        <div class="input_wrapper">
+          <label for="avatarUrl">Avatar url</label>
+          <input id="avatarUrl" type="url" formControlName="avatarUrl" />
+        </div>
         <div class="actions">
-          <input class="button valider" type="submit"/>
+          <input class="button valider" type="submit" />
           <input
             class="button cancel"
             value="Annuler"
-            (click)="connectToForm()"
+            (click)="connectToAccountForm()"
           />
         </div>
       </div>

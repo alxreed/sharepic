@@ -8,13 +8,16 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class UserComponent implements OnInit {
 
   @Input() isLogged: boolean;
+  @Input() userLogged: any;
   @Output() userLogout = new EventEmitter<any>();
   @Output() userLogin = new EventEmitter<any>();
+  @Output() userCreation = new EventEmitter<any>();
   @Output() uploadPicture = new EventEmitter<any>();
 
 
   @Output() connexionForm = false;
   @Output() UploadForm = false;
+  @Output() accountForm = false;
 
   constructor() {}
 
@@ -24,6 +27,10 @@ export class UserComponent implements OnInit {
 
   connectToUploadForm() {
     this.UploadForm = !this.UploadForm;
+  }
+
+  connectToAccountForm() {
+    this.accountForm = !this.accountForm;
   }
 
   onUserLogin(event: any) {
@@ -40,7 +47,12 @@ export class UserComponent implements OnInit {
 
   }
 
+  onUserCreation(event: any) {
+    this.userCreation.emit(event);
+  }
+
   ngOnInit() {
+    console.log(this.userLogged);
   }
 
 }

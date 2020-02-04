@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../services/authentification.service';
 import { UploadService } from '../services/upload.service';
+import { UserService } from '../services/user.service';
+import { PictureService } from '../services/picture.service';
 
 @Component({
   selector: 'app-root',
@@ -10,21 +12,32 @@ import { UploadService } from '../services/upload.service';
 export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
-  constructor(private authService: AuthentificationService, private uploadService: UploadService) { }
+  userLogged;
+  constructor(
+    private authService: AuthentificationService,
+    private uploadService: UploadService,
+    private userService: UserService,
+    private pictureService: PictureService
+  ) { }
 
   ngOnInit() {
     this.isLoggedUser();
+    this.setUserInService();
   }
 
-  onUserLogin(event: { email: string; password: string; }) {
+  async onUserLogin(event: { email: string; password: string; }) {
     console.log(event);
-    this.authService.login(event.email, event.password);
+    await this.authService.login(event.email, event.password);
     this.isLoggedUser();
   }
 
-  onUploadPicture(event: any) {
+  async onUploadPicture(event: any) {
     console.log(event);
-    this.uploadService.uploadPicture(event);
+    await this.uploadService.uploadPicture(event);
+    const pictureUrl = await this.uploadService.getPictureUrl(event);
+    console.log(pictureUrl);
+    await this.pictureService.addPictureInDB(event, pictureUrl, this.userLogged);
+
   }
 
   isLoggedUser() {
@@ -32,8 +45,12 @@ export class AppComponent implements OnInit {
     user.subscribe((data) => {
       if (data) {
         console.log(data);
-
-        this.isLogged = true;
+        // tslint:disable-next-line: no-shadowed-variable
+        this.userService.getUserByEmail(data.email).subscribe((data) => {
+          this.userLogged = data[0];
+          this.isLogged = true;
+          console.log(this.userLogged);
+        });
       } else {
         this.isLogged = false;
       }
@@ -43,5 +60,16 @@ export class AppComponent implements OnInit {
   onUserLogout() {
     this.authService.logout();
     this.isLoggedUser();
+  }
+
+  setUserInService() {
+    this.userService.setConnectedUser(this.userLogged);
+  }
+
+  async onUserCreation(event: any) {
+    console.log(event);
+    await this.authService.creation(event.email, event.password);
+    await this.userService.addUserInDB(event);
+    await this.onUserLogin(event);
   }
 }

@@ -47,4 +47,9 @@ export class PictureService {
 
     await this.db.collection<any>('pictures').add(picture);
   }
+
+  async getPictureId(event) {
+    const collection = await this.db.collection<any>('pictures', ref => ref.where('title', '==', event.title)).get().toPromise();
+    return collection.docs[0].id;
+  }
 }

@@ -3,6 +3,7 @@ import { AuthentificationService } from '../services/authentification.service';
 import { UploadService } from '../services/upload.service';
 import { UserService } from '../services/user.service';
 import { PictureService } from '../services/picture.service';
+import { CommentService } from '../services/comment.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ export class AppComponent implements OnInit {
     private authService: AuthentificationService,
     private uploadService: UploadService,
     private userService: UserService,
-    private pictureService: PictureService
+    private pictureService: PictureService,
+    private commentService: CommentService
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,8 @@ export class AppComponent implements OnInit {
     await this.uploadService.uploadPicture(event);
     const pictureUrl = await this.uploadService.getPictureUrl(event);
     await this.pictureService.addPictureInDB(event, pictureUrl, this.userLogged);
+    const pictureId = await this.pictureService.getPictureId(event);
+    await this.commentService.addEmptyCommentsOnUploadPicture(pictureId);
 
   }
 

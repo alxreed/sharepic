@@ -12,6 +12,15 @@ export class CommentService {
     return this.db.collection<any>('comments', ref => ref.where('pictureId', '==', pictureId)).valueChanges();
   }
 
+  async addEmptyCommentsOnUploadPicture(pictureId) {
+    const comments = {
+      comments: [],
+      // tslint:disable-next-line: object-literal-shorthand
+      pictureId: pictureId,
+    };
+    await this.db.collection<any>('comments').add(comments);
+  }
+
 
   async addCommentInDB(event, pictureId, user) {
     const timestamp = new Date();

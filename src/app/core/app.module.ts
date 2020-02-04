@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment';
 import { AuthentificationService } from '../services/authentification.service';
 import { ModalConnexionComponent } from '../components/modal-connexion/modal-connexion.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SharepicHeaderComponent,
     UserComponent,
     SearchComponent,
-    ModalConnexionComponent
+    ModalConnexionComponent,
+    ModalUploadComponent
   ],
   imports: [
     BrowserModule,

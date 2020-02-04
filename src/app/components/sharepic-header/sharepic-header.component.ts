@@ -9,20 +9,25 @@ export class SharepicHeaderComponent implements OnInit {
   @Input() isLogged: boolean;
   @Output() userLogin = new EventEmitter<any>();
   @Output() userLogout = new EventEmitter<any>();
+  @Output() uploadPicture = new EventEmitter<any>();
 
   constructor() { }
 
   ngOnInit() {
   }
 
-  onUserLogin(event) {
+  onUserLogin(event: any) {
     console.log(event);
     this.userLogin.emit(event);
   }
 
-  onUserLogout(event) {
+  onUserLogout(event: any) {
     console.log(event);
     this.userLogout.emit(event);
+  }
+
+  onUploadPicture(event: any) {
+    this.uploadPicture.emit(event);
   }
 
 }

@@ -1,0 +1,32 @@
+<div class="upload_modal_wrapper">
+  <div class="upload_modal">
+      <div class="upload_modal_title">
+          Upload new image
+      </div>
+      <form [formGroup]="UploadForm" (ngSubmit)="uploadPicture()">
+          <div class="upload_modal_content">
+              <div class="input_wrapper">
+                  <label for="name">Picture's name</label>
+                  <input id="name" type="text" formControlName="name" required/>
+              </div>
+              <div class="input_wrapper">
+                  <label for="description">Picture's description</label>
+                  <textarea id="description" formControlName="description" rows="8"></textarea>
+              </div>
+              <div class="input_wrapper">
+                  <label for="file">Picture's file</label>
+                  <input id="file" type="file"(change)="fileChange($event)"/>
+              </div>
+              <div class="actions">
+                <input
+                class="button cancel"
+                value="Annuler"
+                (click)="connectToUploadForm()"
+                />
+                <input class="button valider" type="submit" />
+              </div>
+          </div>
+      </form>
+  </div>
+</div>
+<div class="overlay"></div>

@@ -8,6 +8,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 export class UserComponent implements OnInit {
 
   @Input() isLogged: boolean;
+  @Input() userLogged: any;
   @Output() userLogout = new EventEmitter<any>();
   @Output() userLogin = new EventEmitter<any>();
   @Output() userCreation = new EventEmitter<any>();
@@ -51,6 +52,7 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.userLogged);
   }
 
 }

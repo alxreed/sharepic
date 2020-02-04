@@ -11,15 +11,16 @@ import { UserService } from '../services/user.service';
 export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
+  userLogged: Promise<any>;
   constructor(private authService: AuthentificationService, private uploadService: UploadService, private userService: UserService) { }
 
   ngOnInit() {
     this.isLoggedUser();
   }
 
-  onUserLogin(event: { email: string; password: string; }) {
+  async onUserLogin(event: { email: string; password: string; }) {
     console.log(event);
-    this.authService.login(event.email, event.password);
+    await this.authService.login(event.email, event.password);
     this.isLoggedUser();
   }
 
@@ -30,9 +31,11 @@ export class AppComponent implements OnInit {
 
   isLoggedUser() {
     const user = this.authService.isLogged();
-    user.subscribe((data) => {
+    user.subscribe(async (data) => {
       if (data) {
         console.log(data);
+        this.userLogged = this.userService.getUserByEmail(data.email);
+        console.log(this.userLogged);
         this.isLogged = true;
       } else {
         this.isLogged = false;
@@ -45,10 +48,10 @@ export class AppComponent implements OnInit {
     this.isLoggedUser();
   }
 
-  onUserCreation(event: any) {
+  async onUserCreation(event: any) {
     console.log(event);
-    this.authService.creation(event.email, event.password);
-    this.userService.addUserInDB(event);
-    this.onUserLogin(event);
+    await this.authService.creation(event.email, event.password);
+    await this.userService.addUserInDB(event);
+    await this.onUserLogin(event);
   }
 }

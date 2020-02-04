@@ -7,6 +7,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class SharepicHeaderComponent implements OnInit {
   @Input() isLogged: boolean;
+  @Input() userLogged: any;
   @Output() userLogin = new EventEmitter<any>();
   @Output() userLogout = new EventEmitter<any>();
   @Output() userCreation = new EventEmitter<any>();

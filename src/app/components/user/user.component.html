@@ -2,7 +2,7 @@
 <div class="user" *ngIf="isLogged; else showLogin">
   <a class="user_link user_account" (click)="logout()">
     <img
-      src="https://drscdn.500px.org/user_avatar/14517171/q%3D85_w%3D50_h%3D50/v2?webp=true&v=1&sig=9bc42e40486b89ffe32344944a77a9fd171314fa413622dc7da9b15a76c431b4"
+      [src]="userLogged.avatarUrl"
       alt=""
     />
   </a>

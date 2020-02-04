@@ -4,6 +4,12 @@
   </div>
   <div class="top-nav_actions">
     <app-search></app-search>
-    <app-user [isLogged]="isLogged" (userLogin)="onUserLogin($event)" (userLogout)="onUserLogout($event)" (uploadPicture)="onUploadPicture($event)"></app-user>
+    <app-user
+    [isLogged]="isLogged"
+    (userLogin)="onUserLogin($event)"
+    (userLogout)="onUserLogout($event)"
+    (uploadPicture)="onUploadPicture($event)"
+    (userCreation)="onUserCreation($event)"
+    ></app-user>
   </div>
 </div>

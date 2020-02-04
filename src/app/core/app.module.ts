@@ -15,6 +15,7 @@ import { AuthentificationService } from '../services/authentification.service';
 import { ModalConnexionComponent } from '../components/modal-connexion/modal-connexion.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
+import { ModalCompteComponent } from '../components/modal-compte/modal-compte.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ModalUploadComponent } from '../components/modal-upload/modal-upload.co
     UserComponent,
     SearchComponent,
     ModalConnexionComponent,
-    ModalUploadComponent
+    ModalUploadComponent,
+    ModalCompteComponent
   ],
   imports: [
     BrowserModule,

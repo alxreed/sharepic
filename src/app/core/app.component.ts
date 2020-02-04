@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthentificationService } from '../services/authentification.service';
 import { UploadService } from '../services/upload.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ import { UploadService } from '../services/upload.service';
 export class AppComponent implements OnInit {
   title = 'sharepic';
   isLogged = false;
-  constructor(private authService: AuthentificationService, private uploadService: UploadService) { }
+  constructor(private authService: AuthentificationService, private uploadService: UploadService, private userService: UserService) { }
 
   ngOnInit() {
     this.isLoggedUser();
@@ -32,7 +33,6 @@ export class AppComponent implements OnInit {
     user.subscribe((data) => {
       if (data) {
         console.log(data);
-
         this.isLogged = true;
       } else {
         this.isLogged = false;
@@ -43,5 +43,12 @@ export class AppComponent implements OnInit {
   onUserLogout() {
     this.authService.logout();
     this.isLoggedUser();
+  }
+
+  onUserCreation(event: any) {
+    console.log(event);
+    this.authService.creation(event.email, event.password);
+    this.userService.addUserInDB(event);
+    this.onUserLogin(event);
   }
 }

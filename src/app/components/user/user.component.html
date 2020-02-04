@@ -54,7 +54,10 @@
 <ng-template #showLogin>
   <div class="user" *ngIf="!connexionForm; else showModal">
     <a class="signin button" (click)="connectToForm()">Se connecter</a>
-    <a class="signup button">Créer un compte</a>
+    <a class="signup button" (click)="connectToAccountForm()">Créer un compte</a>
+    <div class="compte" *ngIf="accountForm">
+      <app-modal-compte (cancelAccountForm)="connectToAccountForm()" (userCreation)="onUserCreation($event)"></app-modal-compte>
+    </div>
   </div>
   <ng-template #showModal>
     <div class="user">

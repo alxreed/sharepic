@@ -9,6 +9,7 @@ export class SharepicHeaderComponent implements OnInit {
   @Input() isLogged: boolean;
   @Output() userLogin = new EventEmitter<any>();
   @Output() userLogout = new EventEmitter<any>();
+  @Output() userCreation = new EventEmitter<any>();
   @Output() uploadPicture = new EventEmitter<any>();
 
   constructor() { }
@@ -30,4 +31,7 @@ export class SharepicHeaderComponent implements OnInit {
     this.uploadPicture.emit(event);
   }
 
+    onUserCreation(event: any) {
+      this.userCreation.emit(event);
+    }
 }

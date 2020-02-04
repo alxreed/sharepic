@@ -56,3 +56,15 @@
 .comment_card.time {
   padding: 0 0 0 10px;
 }
+
+.comment_form {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 5px;
+  }
+  .input_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+}

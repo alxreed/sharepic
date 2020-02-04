@@ -5,6 +5,7 @@ import { DetailsRoutingModule } from './details-routing.module';
 import { DetailPictureComponent } from './components/detail-picture/detail-picture.component';
 import { DetailsInfosComponent } from './components/details-infos/details-infos.component';
 import { DetailsCommentsComponent } from './components/details-comments/details-comments.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -12,7 +13,8 @@ import { DetailsCommentsComponent } from './components/details-comments/details-
   declarations: [DetailsComponent, DetailPictureComponent, DetailsInfosComponent, DetailsCommentsComponent],
   imports: [
     CommonModule,
-    DetailsRoutingModule
+    DetailsRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class DetailsModule { }

@@ -13,10 +13,7 @@ export class UserService {
 
   async addUserInDB(event: { email: any; firstname: any; lastname: any; avatarUrl: any; }) {
     const id = this.db.createId();
-    const timestamp = {
-      seconds: new Date().getSeconds(),
-      nanoseconds: 0
-    };
+    const timestamp = new Date();
     const user = {
       email: event.email,
       firstname: event.firstname,
@@ -30,6 +27,10 @@ export class UserService {
 
   getUserByEmail(email: string) {
     // const data = await this.db.collection<any>('users', ref => ref.where('email', '==', email)).valueChanges().toPromise();
+    this.db.collection<any>('users', ref => ref.where('email', '==', email)).valueChanges().subscribe((data) => {
+      this.userConnected = data[0];
+    });
+
     return this.db.collection<any>('users', ref => ref.where('email', '==', email)).valueChanges();
   }
 

@@ -26,16 +26,13 @@ export class AppComponent implements OnInit {
   }
 
   async onUserLogin(event: { email: string; password: string; }) {
-    console.log(event);
     await this.authService.login(event.email, event.password);
     this.isLoggedUser();
   }
 
   async onUploadPicture(event: any) {
-    console.log(event);
     await this.uploadService.uploadPicture(event);
     const pictureUrl = await this.uploadService.getPictureUrl(event);
-    console.log(pictureUrl);
     await this.pictureService.addPictureInDB(event, pictureUrl, this.userLogged);
 
   }
@@ -44,12 +41,10 @@ export class AppComponent implements OnInit {
     const user = this.authService.isLogged();
     user.subscribe((data) => {
       if (data) {
-        console.log(data);
         // tslint:disable-next-line: no-shadowed-variable
         this.userService.getUserByEmail(data.email).subscribe((data) => {
           this.userLogged = data[0];
           this.isLogged = true;
-          console.log(this.userLogged);
         });
       } else {
         this.isLogged = false;

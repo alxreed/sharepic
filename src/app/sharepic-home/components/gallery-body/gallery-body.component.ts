@@ -10,7 +10,6 @@ export class GalleryBodyComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
-    console.log(this.pictures);
   }
 
 }

@@ -26,10 +26,7 @@ export class PictureService {
   }
 
   async addPictureInDB(event, pictureUrl, user) {
-    const timestamp = {
-      seconds: new Date().getSeconds(),
-      nanoseconds: 0
-    };
+    const timestamp = new Date();
     const picture = {
       author: {
         avatarUrl: user.avatarUrl,
@@ -43,7 +40,7 @@ export class PictureService {
         count: 0,
         likers: [],
       },
-      rating: 0,
+      rating: 9,
       src: pictureUrl,
       title: event.title,
     };

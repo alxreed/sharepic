@@ -13,8 +13,9 @@ import { UserService } from '../services/user.service';
 export class DetailsComponent implements OnInit {
   picture$: Observable<any>;
   comments$: Observable<any>;
-  pictureCommented;
-  id;
+  pictureCommented: any;
+  id: string;
+  isPictureLikedByUser: boolean;
 
 
   constructor(
@@ -31,7 +32,7 @@ export class DetailsComponent implements OnInit {
     this.comments$ = this.commentService.getCommentsByPictureId(this.id);
   }
 
-  onUserComment(event) {
+  onUserComment(event: any) {
     const user = this.userService.getConnectedUser();
     console.log(this.pictureCommented);
     console.log(event);
@@ -40,11 +41,10 @@ export class DetailsComponent implements OnInit {
 
   }
 
-  async onlikePicture(event) {
+  async onlikePicture(event: any) {
     console.log(event);
     const user = this.userService.getConnectedUser();
     console.log(user);
-    await this.pictureService.likePicture(user, this.pictureCommented, this.id);
-
+    this.isPictureLikedByUser = await this.pictureService.likePicture(user, this.pictureCommented, this.id);
   }
 }

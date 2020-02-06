@@ -8,10 +8,10 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 export class DetailsInfosComponent implements OnInit {
 
   @Input() picture: any;
+  @Input() like;
 
   @Output() likePicture = new EventEmitter<any>();
 
-  like = false;
 
   constructor() { }
 

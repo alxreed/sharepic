@@ -60,11 +60,23 @@
 .comment_form {
   display: flex;
   flex-direction: column;
+  margin-top: 20px;
   label {
     margin-bottom: 5px;
   }
   .input_wrapper {
     display: flex;
     justify-content: space-between;
+  }
+  input:first-child {
+    border-radius: 15px;
+    padding: 8px;
+    border: 1px solid #00000040;
+  }
+
+  button {
+    background-color: #ffffff00;
+    border: none;
+    font-size: 1.5em;
   }
 }

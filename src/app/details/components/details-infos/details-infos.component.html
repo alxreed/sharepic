@@ -3,7 +3,7 @@
     <div class="is-picture-liked" *ngIf="like; else unLike">
       <span class="like_button" (click)="onlikePicture()">
         <svg
-          class="icon nolike"
+          class="icon"
           version="1.1"
           viewBox="-6.9 -13.1 40 40"
           x="0px"
@@ -22,7 +22,7 @@
     <ng-template #unLike>
       <span class="like_button" (click)="onlikePicture()">
         <svg
-          class="icon"
+          class="icon nolike"
           version="1.1"
           viewBox="-6.9 -13.1 40 40"
           x="0px"
@@ -70,3 +70,4 @@
     </div>
   </div>
 </div>
+

@@ -78,7 +78,9 @@ export class PictureService {
     }
 
     const likes = {
+      // tslint:disable-next-line: object-literal-shorthand
       count: count,
+      // tslint:disable-next-line: object-literal-shorthand
       likers: likers,
     };
     console.log(picture);

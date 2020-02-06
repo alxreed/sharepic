@@ -19,24 +19,32 @@ export class DetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private service: PictureService,
+    private pictureService: PictureService,
     private commentService: CommentService,
     private userService: UserService
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('imageId');
-    this.picture$ = this.service.getPictureById(this.id);
+    this.picture$ = this.pictureService.getPictureById(this.id);
     this.picture$.subscribe(data => this.pictureCommented = data);
     this.comments$ = this.commentService.getCommentsByPictureId(this.id);
   }
 
   onUserComment(event) {
+    const user = this.userService.getConnectedUser();
     console.log(this.pictureCommented);
+    console.log(event);
+    console.log(user);
+    this.commentService.addCommentInDB(event, this.id, user);
+
+  }
+
+  async onlikePicture(event) {
     console.log(event);
     const user = this.userService.getConnectedUser();
     console.log(user);
-    this.commentService.addCommentInDB(event, this.id, user);
+    await this.pictureService.likePicture(user, this.pictureCommented, this.id);
 
   }
 }

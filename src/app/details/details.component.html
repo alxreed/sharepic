@@ -7,6 +7,6 @@
   </div>
 </div>
 <div class="content">
-  <app-details-infos [picture]="picture$ | async"></app-details-infos>  ​
+  <app-details-infos [picture]="picture$ | async" (likePicture)="onlikePicture($event)"></app-details-infos>  ​
   <app-details-comments [comments]="comments$ | async" (commentContent)="onUserComment($event)"></app-details-comments>
 </div>

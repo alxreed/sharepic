@@ -13,30 +13,38 @@ import { UserService } from '../services/user.service';
 export class DetailsComponent implements OnInit {
   picture$: Observable<any>;
   comments$: Observable<any>;
-  pictureCommented;
-  id;
+  pictureCommented: any;
+  id: string;
+  isPictureLikedByUser: boolean;
 
 
   constructor(
     private route: ActivatedRoute,
-    private service: PictureService,
+    private pictureService: PictureService,
     private commentService: CommentService,
     private userService: UserService
   ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('imageId');
-    this.picture$ = this.service.getPictureById(this.id);
+    this.picture$ = this.pictureService.getPictureById(this.id);
     this.picture$.subscribe(data => this.pictureCommented = data);
     this.comments$ = this.commentService.getCommentsByPictureId(this.id);
   }
 
-  onUserComment(event) {
+  onUserComment(event: any) {
+    const user = this.userService.getConnectedUser();
     console.log(this.pictureCommented);
     console.log(event);
-    const user = this.userService.getConnectedUser();
     console.log(user);
     this.commentService.addCommentInDB(event, this.id, user);
 
+  }
+
+  async onlikePicture(event: any) {
+    console.log(event);
+    const user = this.userService.getConnectedUser();
+    console.log(user);
+    this.isPictureLikedByUser = await this.pictureService.likePicture(user, this.pictureCommented, this.id);
   }
 }

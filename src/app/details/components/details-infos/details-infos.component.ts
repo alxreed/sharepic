@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-details-infos',
@@ -8,11 +8,19 @@ import { Component, OnInit, Input } from '@angular/core';
 export class DetailsInfosComponent implements OnInit {
 
   @Input() picture: any;
+  @Input() like;
+
+  @Output() likePicture = new EventEmitter<any>();
+
 
   constructor() { }
 
   ngOnInit() {
 
+  }
+
+  onlikePicture() {
+    this.likePicture.emit(true);
   }
 
 }

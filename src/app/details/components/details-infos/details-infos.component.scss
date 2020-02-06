@@ -22,6 +22,22 @@
   width: 100%;
 }
 
+.informations_wrapper .actions span.like_button .icon.nolike {
+  fill: rgba($color: #fff, $alpha: 0);
+  stroke: rgba($color: black, $alpha: 0.8);
+  stroke-width: 2px;
+  transition: all linear 300ms;
+  cursor: pointer;
+
+  &:hover {
+      fill: rgba($color: black, $alpha: 0.8);
+  }
+
+  &.liked {
+      fill: rgba($color: #fff, $alpha: 1);
+  }
+}
+
 .informations_wrapper .actions span.like {
   color: #000;
   font-size: 1.2rem;

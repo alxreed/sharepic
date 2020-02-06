@@ -26,7 +26,7 @@
     <form [formGroup]="commentForm" (ngSubmit)="comment()">
       <div class="comment_form">
         <div class="input_wrapper">
-          <input id="text" type="text" formControlName="text" placeholder="Laissez un commentaire"/>
+          <input id="text" type="text" formControlName="text" placeholder="Laissez un commentaire" autofocus/>
           <button type="submit"><i class="fas fa-paper-plane"></i></button>
           <!-- <input type="submit" /> -->
         </div>

@@ -1,5 +1,5 @@
 <div id="content">
   <app-discovery-header></app-discovery-header>
   <app-tab-navigation></app-tab-navigation>
-  <app-gallery-body [pictures]="pictures$ | async"></app-gallery-body>
+  <app-gallery-body [pictures]="pictures$ | async" (likePicture)="onlikePicture($event)" [like]="isPictureLikedByUser"></app-gallery-body>
 </div>

@@ -3,7 +3,11 @@
     <div class="discovery_body_grid">
       <ul>
         <li class="photo_thumbnail" *ngFor="let picture of pictures">
-          <app-picture [picture]="picture"></app-picture>
+          <app-picture
+          [picture]="picture"
+          (likePicture)="onlikePicture($event)"
+          [like]="like"
+          ></app-picture>
         </li>
       </ul>
     </div>

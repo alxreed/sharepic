@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-picture',
@@ -7,9 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PictureComponent implements OnInit {
   @Input() picture: any;
+  @Input() like: any;
+  @Output() likePicture = new EventEmitter<any>();
+  // @Output() pictureLiked = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
+    console.log(this.like);
+
+  }
+
+  onlikePicture() {
+    this.likePicture.emit(this.picture);
   }
 
 }

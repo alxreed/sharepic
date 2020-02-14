@@ -84,6 +84,7 @@ export class PictureService {
       likers: likers,
     };
     console.log(picture);
+    console.log(user);
 
 
     const doc = this.db.doc(`pictures/${pictureId}`);

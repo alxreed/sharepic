@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-body',
@@ -7,9 +7,15 @@ import { Component, OnInit, Input, OnChanges } from '@angular/core';
 })
 export class GalleryBodyComponent implements OnChanges {
   @Input() pictures: any[];
+  @Input() like;
+  @Output() likePicture = new EventEmitter<any>();
   constructor() { }
 
   ngOnChanges() {
+  }
+
+  onlikePicture(event) {
+    this.likePicture.emit(event);
   }
 
 }

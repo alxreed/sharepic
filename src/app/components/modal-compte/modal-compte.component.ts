@@ -31,6 +31,9 @@ export class ModalCompteComponent implements OnInit {
       avatarUrl: new FormControl('', [
 
       ]),
+      description: new FormControl('', [
+
+      ]),
     });
   }
 
@@ -47,4 +50,6 @@ export class ModalCompteComponent implements OnInit {
   get email() { return this.accountForm.get('email'); }
 
   get password() { return this.accountForm.get('password'); }
+
+  get description() { return this.accountForm.get('description'); }
 }

@@ -11,7 +11,7 @@ export class UserService {
 
   constructor(private db: AngularFirestore) { }
 
-  async addUserInDB(event: { email: any; firstname: any; lastname: any; avatarUrl: any; }) {
+  async addUserInDB(event: { email: any; firstname: any; lastname: any; avatarUrl: any; description: any; }) {
     const id = this.db.createId();
     const timestamp = new Date();
     const user = {
@@ -20,6 +20,7 @@ export class UserService {
       lastname: event.lastname,
       avatarUrl: event.avatarUrl,
       createdAt: timestamp,
+      description: event.description,
     };
 
     await this.db.collection<any>('users').doc(id).set(user);

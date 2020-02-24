@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('../sharepic-home/sharepic-home.module').then(mod => mod.SharepicHomeModule),
   },
   {
+    path: 'messages',
+    loadChildren: () => import('../messages/messages.module').then(mod => mod.MessagesModule),
+  },
+  {
     path: 'image/:imageId',
     loadChildren: () => import('../details/details.module').then(mod => mod.DetailsModule),
   },

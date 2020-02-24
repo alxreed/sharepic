@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
+
+$text-1: #333;
+$text-2: #666;
+$text-3: #999;
+$line: #CCC;
+$time-bg: #EEE;
+$background: #F7F7F7;
+
+.contact {
+  position: relative;
+  margin-right: auto;
+  margin-left: 60px;
+	margin-bottom: 1rem;
+	padding-left: 5rem;
+	height: 4.5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	.pic {
+		position: absolute;
+    left: 0;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+	}
+
+	.name {
+    font-weight: 500;
+    font-size: 2rem;
+		margin-bottom: 0.125rem;
+	}
+
+	.message, .seen {
+		font-size: 1.5rem;
+		color: $text-3;
+	}
+
+	.badge {
+		box-sizing: border-box;
+		position: absolute;
+		width: 1.5rem;
+		height: 1.5rem;
+		text-align: center;
+		font-size: 0.9rem;
+		padding-top: 0.125rem;
+		border-radius: 1rem;
+
+		top: 0;
+		left: 2.5rem;
+		background: $text-1;
+		color: white;
+	}
+}

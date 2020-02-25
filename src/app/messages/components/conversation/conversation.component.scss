@@ -1,56 +1,63 @@
-@import url('https://fonts.googleapis.com/css?family=Red+Hat+Display:400,500,900&display=swap');
+$blue: #74b9ff;
 
-$text-1: #333;
-$text-2: #666;
-$text-3: #999;
-$line: #CCC;
-$time-bg: #EEE;
-$background: #F7F7F7;
-
-.contact {
-  position: relative;
-  margin-right: auto;
-  margin-left: 60px;
-	margin-bottom: 1rem;
-	padding-left: 5rem;
-	height: 4.5rem;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-	.pic {
-		position: absolute;
-    left: 0;
-    width: 60px;
-    height: 60px;
+.profile-image {
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
-	}
+}
 
-	.name {
-    font-weight: 500;
-    font-size: 2rem;
-		margin-bottom: 0.125rem;
-	}
+.friend-drawer {
+    padding: 10px 15px;
+    display: flex;
+    vertical-align: baseline;
+    background: #fff;
+    transition: 0.3s ease;
+    justify-content: space-between;
 
-	.message, .seen {
-		font-size: 1.5rem;
-		color: $text-3;
-	}
+    .content {
+      display: flex;
+    }
 
-	.badge {
-		box-sizing: border-box;
-		position: absolute;
-		width: 1.5rem;
-		height: 1.5rem;
-		text-align: center;
-		font-size: 0.9rem;
-		padding-top: 0.125rem;
-		border-radius: 1rem;
+    &--grey {
+        background: #eee;
+    }
 
-		top: 0;
-		left: 2.5rem;
-		background: $text-1;
-		color: white;
-	}
+    .text {
+        margin-left: 20px;
+        width: 70%;
+        color: grey;
+
+        h6 {
+            color: black;
+            font-size: 1.5rem;
+            margin-top: 6px;
+            margin-bottom: 0;
+        }
+
+        p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+    }
+
+    .time {
+        color: grey;
+        justify-self: flex-end;
+    }
+
+    &--onhover:hover {
+        background: $blue;
+        cursor: pointer;
+
+        p,
+        h6,
+        .time {
+            color: #fff !important;
+        }
+    }
+}
+
+hr {
+    margin: 5px auto;
+    width: 90%;
 }

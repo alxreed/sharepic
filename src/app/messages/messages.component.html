@@ -3,6 +3,9 @@
     Conversations
   </h2>
   <div class="conversation" *ngFor="let conversation of conversationsArray">
-    <app-conversation [conversation]="conversation"></app-conversation>
+    <app-conversation [conversation]="conversation" [userLogged]="user"></app-conversation>
+    <div class="hr" *ngIf="conversation !== conversationsArray[conversationsArray.length - 1]">
+      <hr />
+    </div>
   </div>
 </div>

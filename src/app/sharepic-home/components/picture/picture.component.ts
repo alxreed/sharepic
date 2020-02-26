@@ -9,12 +9,9 @@ export class PictureComponent implements OnInit {
   @Input() picture: any;
   @Input() like: any;
   @Output() likePicture = new EventEmitter<any>();
-  // @Output() pictureLiked = new EventEmitter<any>();
   constructor() { }
 
   ngOnInit() {
-    console.log(this.like);
-
   }
 
   onlikePicture() {

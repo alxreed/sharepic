@@ -26,8 +26,6 @@ export class MessagesComponent implements OnInit {
         this.conversations.push(data[0]);
       });
       this.conversationsArray = this.conversations ? this.conversations : [];
-
-      console.log(this.conversationsArray);
     }
 
   }

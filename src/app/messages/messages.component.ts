@@ -10,19 +10,25 @@ import { UserService } from '../services/user.service';
 export class MessagesComponent implements OnInit {
   user: any;
   conversations: any;
+  conversationsArray: any;
 
   constructor(
     private conversationService: ConversationService,
     private userService: UserService
-  ) { }
-
-  ngOnInit() {
-    this.user = this.userService.getConnectedUser();
-    console.log(this.user);
-    
-    this.conversationService.getAllConversations(this.user).subscribe((data) => {
-      console.log(data);
-    });
+  ) {
+    this.conversations = [];
   }
 
+  ngOnInit() {
+    this.user = this.userService.getConnectedUser() ? this.userService.getConnectedUser() : null;
+    if (this.user) {
+      this.conversationService.getAllConversations(this.user).subscribe((data) => {
+        this.conversations.push(data[0]);
+      });
+      this.conversationsArray = this.conversations ? this.conversations : [];
+
+      console.log(this.conversationsArray);
+    }
+
+  }
 }

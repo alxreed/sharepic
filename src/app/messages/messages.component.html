@@ -2,5 +2,7 @@
   <h2>
     Conversations
   </h2>
-  <app-conversation></app-conversation>
+  <div class="conversation" *ngFor="let conversation of conversationsArray">
+    <app-conversation [conversation]="conversation"></app-conversation>
+  </div>
 </div>

@@ -1,12 +1,11 @@
-// @import '../../../node_modules/materialize-css/sass/materialize.scss';
-
-
 .container {
   width: calc(100% - 40px);
   max-width: 1000px;
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 @media only screen and (max-width: 900) {
@@ -28,3 +27,8 @@ hr {
   width: 90%;
 }
 
+
+a {
+  margin-top: 50px;
+  align-self: flex-end;
+}

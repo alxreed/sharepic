@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ConversationService } from '../services/conversation.service';
 import { UserService } from '../services/user.service';
 
@@ -11,6 +11,8 @@ export class MessagesComponent implements OnInit {
   user: any;
   conversations: any;
   conversationsArray: any;
+
+  conversationForm = false;
 
   constructor(
     private conversationService: ConversationService,
@@ -27,6 +29,9 @@ export class MessagesComponent implements OnInit {
       });
       this.conversationsArray = this.conversations ? this.conversations : [];
     }
+  }
 
+  cancelConversationForm() {
+    this.conversationForm = !this.conversationForm;
   }
 }

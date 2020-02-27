@@ -1,0 +1,28 @@
+<div class="upload_modal_wrapper">
+  <div class="upload_modal">
+    <div class="upload_modal_title">
+      Start a new conversation
+    </div>
+    <form method="post">
+      <div class="upload_modal_content">
+        <div class="input_wrapper">
+          <label for="name">Picture's name</label>
+          <input id="name" type="text" />
+        </div>
+        <div class="input_wrapper">
+          <label for="name">Picture's description</label>
+          <textarea id="description" rows="8"></textarea>
+        </div>
+        <div class="input_wrapper">
+          <label for="name">Picture's file</label>
+          <input id="name" type="file" />
+        </div>
+        <div class="actions">
+          <input class="button cancel" value="Annuler" (click)="cancelNewConversation()"/>
+          <input class="button valider" type="submit" />
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="overlay"></div>

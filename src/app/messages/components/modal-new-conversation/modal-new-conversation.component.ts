@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { FormGroup, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-new-conversation',
@@ -8,6 +8,7 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
 })
 export class ModalNewConversationComponent implements OnInit {
   @Output() cancelConversation = new EventEmitter<any>();
+  @Output() newConversation = new EventEmitter<any>();
   @Input() otherUsers;
   @Input() userCo;
   conversationForm: FormGroup;
@@ -18,8 +19,10 @@ export class ModalNewConversationComponent implements OnInit {
   ngOnInit() {
     this.conversationForm = new FormGroup({
       friends: new FormArray([
-        new FormControl(''),
+        new FormControl('', [Validators.required]),
       ]),
+      conversationName: new FormControl(''),
+      conversationAvatarUrl: new FormControl('')
     });
     this.otherUsers = this.getOtherUsers();
     this.addedFriend = [];
@@ -27,8 +30,12 @@ export class ModalNewConversationComponent implements OnInit {
 
   get friends() { return this.conversationForm.get('friends') as FormArray; }
 
+  get conversationName() { return this.conversationForm.get('conversationName'); }
+
+  get conversationAvatarUrl() { return this.conversationForm.get('conversationAvatarUrl'); }
+
   addfriend() {
-    this.friends.push(new FormControl(''));
+    this.friends.push(new FormControl('', [Validators.required]));
   }
 
   removeFriend(friendIndex) {
@@ -50,13 +57,18 @@ export class ModalNewConversationComponent implements OnInit {
   }
 
   sendNewConversation() {
-    console.log(this.conversationForm);
+    const data = {
+      name: this.conversationForm.value.conversationName,
+      convAvatar: this.conversationForm.value.conversationAvatarUrl,
+      members: this.addedFriend,
+    };
+    this.newConversation.emit(data);
+    this.cancelNewConversation();
   }
 
   addThisFriend(user) {
     const fullName = `${user.firstname} ${user.lastname}`;
     this.addedFriend.push(fullName);
-    console.log(this.addedFriend);
   }
 
 }

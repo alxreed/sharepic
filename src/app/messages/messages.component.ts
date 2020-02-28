@@ -38,4 +38,17 @@ export class MessagesComponent implements OnInit {
   cancelConversationForm() {
     this.conversationForm = !this.conversationForm;
   }
+
+  onNewConversation(event) {
+    console.log(event);
+    const fullMembers = [];
+    event.members.forEach((member) => {
+      this.userService.getUserWithFullName(member).subscribe((data) => {
+        fullMembers.push({email: data[0].email});
+      });
+    });
+
+    this.conversationService.addConversation(event, fullMembers, this.user.email);
+
+  }
 }

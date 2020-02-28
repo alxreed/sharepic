@@ -10,10 +10,10 @@ export class ConversationService {
   constructor(
     private db: AngularFirestore,
     private userService: UserService,
-    ) { }
+  ) { }
 
   getAllConversations(user) {
-    return this.db.collection('conversations', ref => ref.where('members', 'array-contains', {email: user.email})).valueChanges();
+    return this.db.collection('conversations', ref => ref.where('members', 'array-contains', { email: user.email })).valueChanges();
   }
 
   getLastMessage(conversation: { messages: any; }) {
@@ -35,7 +35,7 @@ export class ConversationService {
   }
 
   getOthersMembers(members: any[], userLogged) {
-    return members.filter( member => member.email !== userLogged.email);
+    return members.filter(member => member.email !== userLogged.email);
   }
 
   getFullUser(members) {
@@ -45,5 +45,24 @@ export class ConversationService {
       user.subscribe(data => otherMembers.push(data[0]));
     });
     return otherMembers;
+  }
+
+  async addConversation(event, fullMembers, user) {
+    fullMembers.push({email: user});
+
+    const conversation = {
+      members: fullMembers,
+      name: event.name,
+      convAvatar: event.convAvatar,
+      messages: [],
+    };
+
+    console.log(conversation.members);
+
+
+    console.log(conversation);
+
+
+    await this.db.collection<any>('conversations').add(conversation);
   }
 }

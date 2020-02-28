@@ -32,7 +32,16 @@
                   [formControlName]="i"
                   [(ngModel)]="searchText"
                   required
+                  autofocus
                 />
+                <div
+                  *ngIf="friend.invalid && (friend.dirty || friend.touched)"
+                  class="alert"
+                >
+                  <div *ngIf="friend.errors.required">
+                    Password is required
+                  </div>
+                </div>
                 <ul
                   class="collection"
                   *ngFor="let user of otherUsers | filter: searchText"
@@ -68,6 +77,7 @@
               class="mdc-text-field__input"
               type="text"
               aria-labelledby="my-label-id"
+              formControlName="conversationName"
             />
             <div class="mdc-line-ripple"></div>
           </label>
@@ -82,6 +92,7 @@
               class="mdc-text-field__input"
               type="text"
               aria-labelledby="my-label-id"
+              formControlName="conversationAvatarUrl"
             />
             <div class="mdc-line-ripple"></div>
           </label>

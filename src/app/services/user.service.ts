@@ -48,10 +48,19 @@ export class UserService {
     const otherUsers = [];
     this.db.collection<any>('users').valueChanges().subscribe((data) => {
       data.forEach((user) => {
-      otherUsers.push(user);
+        otherUsers.push(user);
       });
     });
     return otherUsers;
 
+  }
+
+  getUserWithFullName(fullName: string) {
+    const firstname = fullName.split(' ')[0];
+    const lastname = fullName.split(' ')[1];
+
+    return this.db.collection<any>('users', ref => ref.where('firstname', '==', firstname)
+                                                      .where('lastname', '==', lastname))
+                                                      .valueChanges();
   }
 }

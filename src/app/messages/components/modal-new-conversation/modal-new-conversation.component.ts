@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
 @Component({
@@ -8,6 +8,8 @@ import { FormGroup, FormArray, FormControl } from '@angular/forms';
 })
 export class ModalNewConversationComponent implements OnInit {
   @Output() cancelConversation = new EventEmitter<any>();
+  @Input() otherUsers;
+  @Input() userCo;
   conversationForm: FormGroup;
 
   constructor() { }
@@ -18,18 +20,36 @@ export class ModalNewConversationComponent implements OnInit {
         new FormControl(''),
       ]),
     });
+    this.otherUsers = this.getOtherUsers();
   }
 
   get friends() { return this.conversationForm.get('friends') as FormArray; }
 
   addfriend() {
     this.friends.push(new FormControl(''));
-    console.log(this.conversationForm);
+  }
 
+  removeFriend(friendIndex) {
+    this.friends.removeAt(friendIndex);
   }
 
   cancelNewConversation() {
     this.cancelConversation.emit(true);
+  }
+
+  getOtherUsers() {
+    const usersToReturn = [];
+    this.otherUsers.forEach((user) => {
+      if (user.email !== this.userCo.email) {
+        usersToReturn.push(user);
+      }
+    });
+    return usersToReturn;
+  }
+
+  sendNewConversation() {
+    console.log(this.conversationForm);
+
   }
 
 }

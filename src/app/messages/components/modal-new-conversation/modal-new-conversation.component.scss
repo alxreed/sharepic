@@ -124,6 +124,11 @@
 
 .waves-light {
   margin-top: 10px;
-  align-self: flex-end;
+  justify-content: end;
   background: #3498db90;
+  float: right;
+}
+
+.remove {
+  color: #d3540090;
 }

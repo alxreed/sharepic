@@ -1,6 +1,7 @@
 import { Component, OnInit, Output } from '@angular/core';
 import { ConversationService } from '../services/conversation.service';
 import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-messages',
@@ -13,6 +14,8 @@ export class MessagesComponent implements OnInit {
   conversationsArray: any;
 
   conversationForm = false;
+
+  otherUsers;
 
   constructor(
     private conversationService: ConversationService,
@@ -29,6 +32,7 @@ export class MessagesComponent implements OnInit {
       });
       this.conversationsArray = this.conversations ? this.conversations : [];
     }
+    this.otherUsers = this.userService.getOtherUsers();
   }
 
   cancelConversationForm() {

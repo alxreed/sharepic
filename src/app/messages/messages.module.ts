@@ -5,6 +5,7 @@ import {MessagesRoutingModule} from './messages-routing.module';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { ModalNewConversationComponent } from './components/modal-new-conversation/modal-new-conversation.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilterPipe } from '../filter.pipe';
 
 
 
@@ -13,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MessagesComponent,
     ConversationComponent,
     ModalNewConversationComponent,
+    FilterPipe,
   ],
   imports: [
     CommonModule,

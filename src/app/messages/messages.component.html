@@ -11,5 +11,9 @@
   <a class="btn-floating btn-large waves-effect waves-light red" (click)="cancelConversationForm()"><i class="material-icons">add</i></a>
 </div>
 <div class="modal-conv" *ngIf="conversationForm">
-  <app-modal-new-conversation (cancelConversation)="cancelConversationForm($event)"></app-modal-new-conversation>
+  <app-modal-new-conversation
+  (cancelConversation)="cancelConversationForm($event)"
+  [otherUsers]="otherUsers"
+  [userCo]="user"
+  ></app-modal-new-conversation>
 </div>

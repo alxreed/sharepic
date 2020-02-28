@@ -3,7 +3,7 @@
     <div class="upload_modal_title">
       Start a new conversation
     </div>
-    <form [formGroup]="conversationForm">
+    <form [formGroup]="conversationForm" (ngSubmit)="sendNewConversation()">
       <div class="upload_modal_content">
         <div formArrayName="friends">
           <div *ngFor="let friend of friends.controls; let i = index">
@@ -14,12 +14,20 @@
               >
               <input
                 class="mdc-text-field__input"
-                type="text"
+                type="search"
                 aria-labelledby="my-label-id"
                 [formControlName]="i"
+                [(ngModel)]="searchText"
               />
               <div class="mdc-line-ripple"></div>
             </label>
+            <ul class="collection" *ngFor="let user of otherUsers | filter: searchText">
+              <li class="collection-item avatar">
+                <img [src]="user.avatarUrl" alt="" class="circle">
+                <span class="title">{{user.firstname | titlecase}} {{user.lastname | titlecase}}</span>
+              </li>
+            </ul>
+            <a (click)="removeFriend(i)"><i class="material-icons remove">clear</i></a>
           </div>
           <a class="waves-effect waves-light btn" (click)="addfriend()">Add friend</a>
         </div>

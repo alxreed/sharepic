@@ -16,7 +16,7 @@
 .upload_modal_wrapper .upload_modal {
   width: 450px;
   height: 700px;
-  background: #f7f8fa;
+  background: #ffffff;
   position: relative;
 }
 
@@ -120,4 +120,10 @@
   bottom: 0;
   right: 0;
   background: rgba(0, 0, 0, 0.3);
+}
+
+.waves-light {
+  margin-top: 10px;
+  align-self: flex-end;
+  background: #3498db90;
 }

@@ -3,22 +3,32 @@
     <div class="upload_modal_title">
       Start a new conversation
     </div>
-    <form method="post">
+    <form [formGroup]="conversationForm">
       <div class="upload_modal_content">
-        <div class="input_wrapper">
-          <label for="name">Picture's name</label>
-          <input id="name" type="text" />
-        </div>
-        <div class="input_wrapper">
-          <label for="name">Picture's description</label>
-          <textarea id="description" rows="8"></textarea>
-        </div>
-        <div class="input_wrapper">
-          <label for="name">Picture's file</label>
-          <input id="name" type="file" />
+        <div formArrayName="friends">
+          <div *ngFor="let friend of friends.controls; let i = index">
+            <label class="mdc-text-field">
+              <div class="mdc-text-field__ripple"></div>
+              <span class="mdc-floating-label" id="my-label-id"
+                >Select friends to chat with</span
+              >
+              <input
+                class="mdc-text-field__input"
+                type="text"
+                aria-labelledby="my-label-id"
+                [formControlName]="i"
+              />
+              <div class="mdc-line-ripple"></div>
+            </label>
+          </div>
+          <a class="waves-effect waves-light btn" (click)="addfriend()">Add friend</a>
         </div>
         <div class="actions">
-          <input class="button cancel" value="Annuler" (click)="cancelNewConversation()"/>
+          <input
+            class="button cancel"
+            value="Annuler"
+            (click)="cancelNewConversation()"
+          />
           <input class="button valider" type="submit" />
         </div>
       </div>

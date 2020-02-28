@@ -4,6 +4,7 @@ import {MessagesComponent} from './messages.component';
 import {MessagesRoutingModule} from './messages-routing.module';
 import { ConversationComponent } from './components/conversation/conversation.component';
 import { ModalNewConversationComponent } from './components/modal-new-conversation/modal-new-conversation.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -16,6 +17,7 @@ import { ModalNewConversationComponent } from './components/modal-new-conversati
   imports: [
     CommonModule,
     MessagesRoutingModule,
+    ReactiveFormsModule,
   ]
 })
 export class MessagesModule { }

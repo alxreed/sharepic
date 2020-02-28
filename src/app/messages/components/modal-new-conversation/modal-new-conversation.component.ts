@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-new-conversation',
@@ -7,9 +8,24 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class ModalNewConversationComponent implements OnInit {
   @Output() cancelConversation = new EventEmitter<any>();
+  conversationForm: FormGroup;
+
   constructor() { }
 
   ngOnInit() {
+    this.conversationForm = new FormGroup({
+      friends: new FormArray([
+        new FormControl(''),
+      ]),
+    });
+  }
+
+  get friends() { return this.conversationForm.get('friends') as FormArray; }
+
+  addfriend() {
+    this.friends.push(new FormControl(''));
+    console.log(this.conversationForm);
+
   }
 
   cancelNewConversation() {

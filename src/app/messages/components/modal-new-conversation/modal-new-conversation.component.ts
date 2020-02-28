@@ -11,6 +11,7 @@ export class ModalNewConversationComponent implements OnInit {
   @Input() otherUsers;
   @Input() userCo;
   conversationForm: FormGroup;
+  addedFriend;
 
   constructor() { }
 
@@ -21,6 +22,7 @@ export class ModalNewConversationComponent implements OnInit {
       ]),
     });
     this.otherUsers = this.getOtherUsers();
+    this.addedFriend = [];
   }
 
   get friends() { return this.conversationForm.get('friends') as FormArray; }
@@ -49,7 +51,12 @@ export class ModalNewConversationComponent implements OnInit {
 
   sendNewConversation() {
     console.log(this.conversationForm);
+  }
 
+  addThisFriend(user) {
+    const fullName = `${user.firstname} ${user.lastname}`;
+    this.addedFriend.push(fullName);
+    console.log(this.addedFriend);
   }
 
 }

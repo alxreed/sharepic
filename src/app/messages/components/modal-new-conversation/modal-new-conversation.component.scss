@@ -15,7 +15,7 @@
 
 .upload_modal_wrapper .upload_modal {
   width: 450px;
-  height: 700px;
+  height: 900px;
   background: #ffffff;
   position: relative;
 }
@@ -131,4 +131,18 @@
 
 .remove {
   color: #d3540090;
+}
+
+.collection .collection-item.avatar {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+.conv-name {
+  margin-top: 50px;
+}
+
+.conv-avatar {
+  margin-top: 20px;
 }

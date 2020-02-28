@@ -12,24 +12,79 @@
               <span class="mdc-floating-label" id="my-label-id"
                 >Select friends to chat with</span
               >
-              <input
-                class="mdc-text-field__input"
-                type="search"
-                aria-labelledby="my-label-id"
-                [formControlName]="i"
-                [(ngModel)]="searchText"
-              />
-              <div class="mdc-line-ripple"></div>
+              <div *ngIf="addedFriend[i]; else empty">
+                <input
+                  class="mdc-text-field__input"
+                  type="search"
+                  aria-labelledby="my-label-id"
+                  [formControlName]="i"
+                  [value]="addedFriend[i] | titlecase"
+                />
+
+                <div class="mdc-line-ripple"></div>
+              </div>
+
+              <ng-template #empty>
+                <input
+                  class="mdc-text-field__input"
+                  type="text"
+                  aria-labelledby="my-label-id"
+                  [formControlName]="i"
+                  [(ngModel)]="searchText"
+                  required
+                />
+                <ul
+                  class="collection"
+                  *ngFor="let user of otherUsers | filter: searchText"
+                >
+                  <li
+                    class="collection-item avatar"
+                    (click)="addThisFriend(user)"
+                  >
+                    <img [src]="user.avatarUrl" alt="" class="circle" />
+                    <span class="title"
+                      >{{ user.firstname | titlecase }}
+                      {{ user.lastname | titlecase }}</span
+                    >
+                  </li>
+                </ul>
+              </ng-template>
             </label>
-            <ul class="collection" *ngFor="let user of otherUsers | filter: searchText">
-              <li class="collection-item avatar">
-                <img [src]="user.avatarUrl" alt="" class="circle">
-                <span class="title">{{user.firstname | titlecase}} {{user.lastname | titlecase}}</span>
-              </li>
-            </ul>
-            <a (click)="removeFriend(i)"><i class="material-icons remove">clear</i></a>
+            <a (click)="removeFriend(i)"
+              ><i class="material-icons remove">clear</i></a
+            >
           </div>
-          <a class="waves-effect waves-light btn" (click)="addfriend()">Add friend</a>
+          <a class="waves-effect waves-light btn" (click)="addfriend()"
+            >Add friend</a
+          >
+        </div>
+        <div class="conv-name">
+          <label class="mdc-text-field">
+            <div class="mdc-text-field__ripple"></div>
+            <span class="mdc-floating-label" id="my-label-id"
+              >What's your conversation name ?</span
+            >
+            <input
+              class="mdc-text-field__input"
+              type="text"
+              aria-labelledby="my-label-id"
+            />
+            <div class="mdc-line-ripple"></div>
+          </label>
+        </div>
+        <div class="conv-avatar">
+          <label class="mdc-text-field">
+            <div class="mdc-text-field__ripple"></div>
+            <span class="mdc-floating-label" id="my-label-id"
+              >Do you have a conversation avatar URL ?</span
+            >
+            <input
+              class="mdc-text-field__input"
+              type="text"
+              aria-labelledby="my-label-id"
+            />
+            <div class="mdc-line-ripple"></div>
+          </label>
         </div>
         <div class="actions">
           <input

@@ -1,6 +1,21 @@
 # Changelog
 
+## 5.0.0 (27/04/2021)
+- [feat: update changelog](https://github.com/alxreed/sharepic/commit/e2af74b9df32ca27a9cac4979152b09fffdaa951) - @alxreed
+
+---
+
 ## 3.0.0 (27/04/2021)
+- [feat: update changelog](https://github.com/alxreed/sharepic/commit/08c59a3e90b7cd063c2c9a6fe91c12072b62e3f4) - @alxreed
+
+---
+
+## 2.0.0 (27/04/2021)
+- [feat: add changelog.md](https://github.com/alxreed/sharepic/commit/d8d180e107a74e72ae561e8cf6340d98ff136af4) - @alxreed
+
+---
+
+## 1.0.0 (27/04/2021)
 - [feat(conversation): currently trying to create a conversation with the right members](https://github.com/alxreed/sharepic/commit/aa028023c7c7c5fb5ea9f31a8606dee3e10239e6) - @alxreed
 - [feat(conversation): new conversation modal is nearly ready, need to add validators on friend selection](https://github.com/alxreed/sharepic/commit/3dd1fd54fff73f6f67b48ce6848fd889f52a7939) - @alxreed
 - [feat(conv): add search on friend's name to the new conversation modal](https://github.com/alxreed/sharepic/commit/42f029c7667b0ad4b9c4bc7ed4c90b22a00d9c39) - @alxreed
@@ -67,13 +82,3 @@
 - [init header comnent](https://github.com/alxreed/sharepic/commit/69a0a7b37fe93a35b5c10831dcb0ff2ab8f64c80) - @alxreed
 - [change html language to fr in index.html](https://github.com/alxreed/sharepic/commit/fd26c5634c58c1c9d98b14ecd91a076829276bc3) - undefined
 - [initial commit](https://github.com/alxreed/sharepic/commit/d8fbef40dd380665c9482fcf72464b8986f9c081) - @alxreed
-
----
-
-## 2.0.0 (27/04/2021)
-*No changelog for this release.*
-
----
-
-## 1.0.0 (27/04/2021)
-*No changelog for this release.*
